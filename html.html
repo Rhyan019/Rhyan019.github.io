@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portifólio Rhyan</title>
+ 
+  <link rel="stylesheet" href="css.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="js portifolio.js"></script>
+</head>
+<body>
+
+
+  <ul class="menu">
+ 
+    <div class="menuToggle"><ion-icon name="add-outline"></ion-icon></div>
+    
+    <li style="--i: 0; --clr: #ff2972">
+      <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+    </li>
+   
+    <li style="--i: 2; --clr: #04fc43">
+      <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
+    </li>
+   
+    <li style="--i: 4; --clr: #00b0fe">
+      <a href="#"><ion-icon name="camera-outline"></ion-icon></a>
+    </li>
+
+    <li style="--i: 6; --clr: #a529ff">
+      <a href="pagina inicial.html"><ion-icon name="person-outline"></ion-icon></a>
+    </li>
+    
+    </li>
+  </ul>
+
+
+  <audio id="toggleSound">
+    <source src="audio_close.mp3" type="audio_mpeg">
+    <source src="audio_close.ogg" type="audio_ogg">
+  </audio>
+
+  <audio id="openSound">
+    <source src="audio_open.mp3" type="audio_mpeg">
+    <source src="audio_open.ogg" type="audio_ogg">
+  </audio>
+
+  <audio id="hoverSound">
+    <source src="audio_beep.mp3" type="audio_mpeg">
+    <source src="audio_beep.ogg" type="audio_ogg">
+  </audio>
+
+  
+  <script>
+    $(document).ready(function() {
+      var toggleSound = $("#toggleSound")[0];
+      var openSound = $("#openSound")[0];
+      var hoverSound = $("#hoverSound")[0];
+
+      let menuToggle = document.querySelector(".menuToggle");
+      let menu = document.querySelector(".menu");
+
+      menuToggle.onclick = function () {
+        menu.classList.toggle("active");
+        toggleSound.currentTime = 0; 
+        toggleSound.play();
+        if (menu.classList.contains("active")) {
+          openSound.currentTime = 0; 
+          openSound.play();
+        }
+      };
+
+      $("a").mouseenter(function() {
+        hoverSound.currentTime = 0; 
+        hoverSound.play();
+      });
+    });
+  </script>
+
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+
+</body>
+</html>
